@@ -27,9 +27,10 @@
     html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden;
       background-color: var(--white);
       color: var(--text-color);
+      overflow-x: hidden;
+      overflow-y: auto; /* Allow vertical scrolling */
     }
 
     nav {
@@ -38,10 +39,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
       border-bottom: 1px solid var(--black);
+      background-color: var(--gray);
     }
 
     .nav-left img {
@@ -52,14 +56,14 @@
     .nav-right a {
       margin: 0 1.2rem;
       text-decoration: none;
-      color: var(--black);
+      color: var(--white);
       font-weight: 500;
       font-size: 1.1rem;
       transition: color 0.3s ease;
     }
 
     .nav-right a:hover {
-      color: var(--white);
+      color: var(--orange);
     }
 
     .hamburger {
@@ -184,11 +188,35 @@
     }
 
     footer {
-      background-color: var(--black);
+      background-color: var(--gray);
       color: var(--white);
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
+    }
+
+    /* Content section below the header */
+    .content {
+      h1{
+      color: #ff5e00;
+      padding: 2rem;
+      margin-top: 50px; /* Space for the fixed navbar */
+      font-size: 1.5rem;
+      text-align: center;
+      }
+      h2{
+      color: #ff5e00;
+      padding: 1rem;
+      margin-top: 50px; /* Space for the fixed navbar */
+      font-size: 1.5rem;
+      text-align: center;
+      }
+    }
+      p{
+      padding: 1rem;
+      margin-top: 20px; /* Space for the fixed navbar */
+      font-size: 0.8rem;
+      text-align: center;
     }
   </style>
 </head>
@@ -210,23 +238,29 @@
   <header>
     <img src="images/evaoutsourcing.png" alt="Eva Image Preview" />
     <div class="intro">
-      <div id="typing-container">
-      
-      </div>
+      <div id="typing-container"></div>
       <h1>INCREASE PRODUCTIVITY.</h1>
       <h1>DELEGATE.OUTSOURCE.</h1>
-
-      <a href="" download class="btn">VA Bundle Promo</a>
+      <a href=""download class="btn">VA Bundle Promo</a>
       <a href="mailto:evacareers@gmail.com" class="btn">Contact</a>
     </div>
   </header>
-  <h1>we bring a whole new level of bpo experience</h1>
 
+  <!-- Scrollable Content -->
+  <div class="content">
+    <h1>WE BRING A WHOLE NEW LEVEL OF BPO EXPERIENCE</h1>
+    <p>eVA provides quality services and offers effective strategies that can help business succeed. 
+      We always aim to exceed out clients’ expectations. </p>
+    <h2>WHO WE ARE</h2>
+    <p>We are on outsourcing company based in the Philippines that specializes in providing innovate 
+      and complete BPO solutions to different industries worldwide for more than 15 years now.
+      eVA walks with businesses on their path to success!</p>
+  </div>
+  
   <script>
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('active');
     }
-
   </script>
 
   <footer>
