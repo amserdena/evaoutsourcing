@@ -2,25 +2,235 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  meta name="viewport" contect="width=device-width, initial-scale=1.0 />
-  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eva Outsourcing Homepage</title>
   <style>
     :root {
-      --orange
-      --black
-      --white
+      --white: #ffffff;
+      --orange: #ff5e00;
+      --black:  #000000;
+      --gray: #2e2e2e;
+
+      --color: var(--black);
+      --card-bg: var(--orange);
+      --border-color: var(--black);
+      --text-color: var(--black);
     }
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
     }
+
     html, body {
-    width: 100%
-    height: 100%
-    overflow: hidden;
-    background-color: var(--white)
-    color:var(--black)
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--white);
+      color: var(--text-color);
+    }
+
+    nav {
+      background-color: var(--gray);
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--black);
+    }
+
+    .nav-left img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-right a {
+      margin: 0 1.2rem;
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-right a:hover {
+      color: var(--white);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: var(--orange);
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    .nav-right.active {
+      background: var(--orange);
+    }
+
+    @media (max-width: 768px) {
+      .nav-right {
+        display: none;
+        flex-direction: column;
+        background: var(--black);
+        position: absoslute;
+        top: 65px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .nav-right a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--black);
+      }
+
+      .nav-right.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .intro {
+        padding: 1rem;
+        font-size: 0.95rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    header img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .intro {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 50%;
+      margin-left: 5%;
+      color: var(--orange);
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--orange);
+      border: 2px solid var(--black);
+      color: var(--black);
+      padding: 0.6rem 1.2rem;
+      margin: 0.5rem 0.5rem 0 0;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s ease, color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--black);
+      color: var(--white);
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+      color: var(--text-color);
+    }
+
+    footer {
+      background-color: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <img id="logo" src="images/evalogo.png" alt="Logo">
+    </div>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-right" id="navLinks">
+      <a href="home.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="services.html">Skills</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <header>
+    <img src="images/evaoutsourcing.png" alt="Eva Image Preview" />
+    <div class="intro">
+      <div id="typing-container">
+      
+      </div>
+      <h1>INCREASE PRODUCTIVITY.</h1>
+      <h1>DELEGATE.OUTSOURCE.</h1>
+
+      <a href="" download class="btn">VA Bundle Promo</a>
+      <a href="mailto:evacareers@gmail.com" class="btn">Contact</a>
+    </div>
+  </header>
+  <h1>we bring a whole new level of bpo experience</h1>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+  </script>
+
+  <footer>
+    &copy; 2025 Eva Outsourcing. All rights reserved.
+  </footer>
+</body>
+</html>
